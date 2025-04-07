@@ -6,19 +6,24 @@
 /*   By: anschmit <anschmit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:39:51 by anschmit          #+#    #+#             */
-/*   Updated: 2025/04/03 15:48:14 by anschmit         ###   ########.fr       */
+/*   Updated: 2025/04/07 14:59:59 by anschmit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) 
+ClapTrap::ClapTrap() : _hp(10), _ep(10), _ad(0)
+{	
+	std::cout << "Default Constructor called!" << std::endl;	
+}
+
+ClapTrap::ClapTrap(std::string name)
 {
 	_name = name;
 	_hp = 10;
 	_ep = 10;
 	_ad = 0;
-	std::cout << "Clap Trap: Default Constructor for " << name << " has been called!" << std::endl;	
+	std::cout << name << " has been constructed!" << std::endl;	
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) 
@@ -76,7 +81,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_ep <= 0 || _hp <= 0)
 	{
-		std::cout << REDB << _name << " cannot repair itself due to lack of energy or Hit points!" << RESET << std::endl;
+		std::cout << this->_name << " cannot repair itself due to lack of energy or Hit points!" << std::endl;
 		return ;
 	}
 	_ep--;

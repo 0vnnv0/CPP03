@@ -6,7 +6,7 @@
 /*   By: anschmit <anschmit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:33:48 by anschmit          #+#    #+#             */
-/*   Updated: 2025/04/03 15:42:12 by anschmit         ###   ########.fr       */
+/*   Updated: 2025/04/07 13:23:46 by anschmit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 class ClapTrap
 {
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &other);
 		ClapTrap &operator=(const ClapTrap &other);

@@ -6,20 +6,45 @@
 /*   By: anschmit <anschmit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 14:43:48 by anschmit          #+#    #+#             */
-/*   Updated: 2025/04/03 16:06:33 by anschmit         ###   ########.fr       */
+/*   Updated: 2025/04/07 15:01:50 by anschmit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
-{
-	_name = name;
-	_hp = 100;
-	_ep = 50;
-	_ad = 20;
-	std::cout << YELLOW << "ScavTrap: " << RESET << "Default constructor for " << _name << " called!" << std::endl;	
+ScavTrap::ScavTrap() : ClapTrap()
+{	
+	std::cout << YELLOW << "Scav Trap: " << RESET << "Default Constructor called!" << std::endl;	
 }
+
+ScavTrap::ScavTrap (std::string name) : ClapTrap(name)
+{
+	name = _name;
+	_hp = 10;
+	_ep = 10;
+	_ad = 0;
+	std::cout << YELLOW << "ScavTrap: " << RESET << name << " has been constructed!" << std::endl;	
+}
+
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+{
+	std::cout << YELLOW << "ScavTrap: " << RESET << "Copy Constructor has been called!" << std::endl;
+	*this = other;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &other)
+{
+	if (this != &other)
+	{
+		_name = other._name;
+		_ep = other._ep;
+		_hp = other._hp;
+		_ad = other._ad;
+	}
+	std::cout << YELLOW << "ScavTrap: " << RESET << "Copy assignment operator called!" << std::endl;
+	return (*this);
+}
+
 ScavTrap::~ScavTrap()
 {
 	std::cout << YELLOW << "ScavTrap: " << RESET << "Destructor has been called!" << std::endl;

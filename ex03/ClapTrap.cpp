@@ -6,7 +6,7 @@
 /*   By: anschmit <anschmit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:39:51 by anschmit          #+#    #+#             */
-/*   Updated: 2025/04/07 14:59:06 by anschmit         ###   ########.fr       */
+/*   Updated: 2025/04/07 16:11:44 by anschmit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor has been called!" << std::endl;
+	std::cout << "Clap Trap: Destructor has been called!" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target) 
@@ -55,7 +55,7 @@ void ClapTrap::attack(const std::string& target)
 	if (_ep <= 0 || _hp <= 0)
 		return ;
 	_ep--;
-	std::cout << BLUE << _name <<" attacks " << target << ", causing " << RED << _ad << BLUE << " points of damage!" << RESET << std::endl;
+	std::cout <<  _name <<" attacks " << target << ", causing " << RED << _ad << RESET << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) 
@@ -73,7 +73,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	else
 	{
 		_hp -= amount;
-		std::cout << BLUE << _name << " lost " << RED << amount << BLUE << " points of damage! Remaining Hit points: " << GREEN << _hp << RESET << std::endl;
+		std::cout << _name << " lost " << RED << amount << RESET << " points of damage! Remaining Hit points: " << GREEN << _hp << RESET << std::endl;
 	}
 }
 
@@ -81,10 +81,10 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_ep <= 0 || _hp <= 0)
 	{
-		std::cout << REDB << _name << " cannot repair itself due to lack of energy or Hit points!" << RESET << std::endl;
+		std::cout << this->_name << " cannot repair itself due to lack of energy or Hit points!" << std::endl;
 		return ;
 	}
 	_ep--;
 	_hp += amount;
-	std::cout << BLUE << _name << " regained " << GREEN << amount << BLUE << " Hit points! Remaining Hit points: " << GREEN << _hp << RESET << std::endl;
+	std::cout << _name << " regained " << GREEN << amount << RESET << " Hit points! Remaining Hit points: " << GREEN << _hp << RESET << std::endl;
 }
